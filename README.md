@@ -23,6 +23,19 @@ Then add source, headers and include paths to your `.pro` file:
 include(src/ThirdParty/QWidgetsListWidget/src/QWidgetsListWidget.pri)
 ```
 
+### Usage
+
+The basic idea is the you inherit some classes and overwrite some methods.
+
+Create a `Display` widget and make it inherit from `QWidgetsListWidgetDisplay` class.
+Implement your UI in there. Overwrite `dataChanged()` method to update you widget with the model data.
+Check out the examples for reference implementation.
+
+Then create a custom `ListWidget` class with `QWidgetsListWidget` as parent.
+Implement your own version of `createDisplay` method to create your `Display` class object.
+
+That's it, basically.
+
 ### Usage example
 
 Check out the `examples` dir for usage examples.
