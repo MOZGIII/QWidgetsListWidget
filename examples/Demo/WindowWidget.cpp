@@ -7,9 +7,9 @@ WindowWidget::WindowWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->listWidget->addItem(QString());
-    ui->listWidget->addItem(QString());
-    ui->listWidget->addItem(QString());
+    ui->listWidget->addItem("123");
+    ui->listWidget->addItem("456");
+    ui->listWidget->addItem("789");
 }
 
 WindowWidget::~WindowWidget()

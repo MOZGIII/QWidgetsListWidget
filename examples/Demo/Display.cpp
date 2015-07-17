@@ -12,3 +12,8 @@ Display::~Display()
 {
     delete ui;
 }
+
+void Display::dataChanged()
+{
+    ui->label->setText(index().data(Qt::DisplayRole).toString());
+}

@@ -15,6 +15,9 @@ public:
     explicit Display(const QModelIndex &index);
     ~Display();
 
+public slots:
+    virtual void dataChanged();
+
 private:
     Ui::Display *ui;
 };
