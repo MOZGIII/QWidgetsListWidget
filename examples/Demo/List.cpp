@@ -10,4 +10,3 @@ QWidgetsListWidgetDisplay *List::createDisplay(const QModelIndex &index) const
 {
     return new Display(index);
 }
-
