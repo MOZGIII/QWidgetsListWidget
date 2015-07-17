@@ -11,7 +11,7 @@ Clone to a subdirectory of your project:
 
 ```
 $ cd my-project
-$ git clone this-repo.git src/ThirdParty/QWidgetsListWidget
+$ git clone https://github.com/MOZGIII/QWidgetsListWidget.git src/ThirdParty/QWidgetsListWidget
 ```
 
 Note: if using git for your project already, a good idea would be to create a submodule.
