@@ -2,10 +2,27 @@
 #include "QWidgetsListWidgetDisplay.h"
 
 #include <QDebug>
+#include <QStyledItemDelegate>
+
+class QWidgetsListWidgetItemDelegate : public QStyledItemDelegate
+{
+protected:
+    virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override
+    {
+        QStyledItemDelegate::initStyleOption(option, index);
+
+        // Remove selected state
+        option->state &= ~QStyle::State_Selected;
+
+        // Remove text
+        option->text = QString();
+    }
+};
 
 QWidgetsListWidget::QWidgetsListWidget(QWidget *parent) :
     QListWidget(parent)
 {
+    setItemDelegate(new QWidgetsListWidgetItemDelegate());
 }
 
 void QWidgetsListWidget::rowsInserted(const QModelIndex &parent, int start, int end)
