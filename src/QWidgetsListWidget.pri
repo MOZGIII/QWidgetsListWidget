@@ -4,6 +4,6 @@ SOURCES += \
     $$PWD/QWidgetsListWidget.cpp \
     $$PWD/QWidgetsListWidgetDisplay.cpp
 
-HEADERS  += \
+HEADERS += \
     $$PWD/QWidgetsListWidget.h \
     $$PWD/QWidgetsListWidgetDisplay.h
