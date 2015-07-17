@@ -25,7 +25,7 @@ include(src/ThirdParty/QWidgetsListWidget/src/QWidgetsListWidget.pri)
 
 ### Usage
 
-The basic idea is the you inherit some classes and overwrite some methods.
+The basic idea is, as usual, to inherit some classes and overwrite some methods.
 
 Create a `Display` widget and make it inherit from `QWidgetsListWidgetDisplay` class.
 Implement your UI in there. Overwrite `dataChanged()` method to update you widget with the model data.
