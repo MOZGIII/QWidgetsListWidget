@@ -65,7 +65,6 @@ void QWidgetsListWidget::dataChanged(const QModelIndex &topLeft, const QModelInd
         auto widget = dynamic_cast<QWidgetsListWidgetDisplay*>(itemWidget(listItem));
         if(widget != nullptr) {
             widget->dataChanged();
-            listItem->setSizeHint(widget->sizeHint());
         }
     }
     QListWidget::dataChanged(topLeft, bottomRight, roles);
