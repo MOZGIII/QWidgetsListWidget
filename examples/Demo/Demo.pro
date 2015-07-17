@@ -1,27 +1,28 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2015-07-16T21:32:00
-#
-#-------------------------------------------------
-
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++11
 
 TARGET = Demo
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        WindowWidget.cpp \
+SOURCES += \
+    main.cpp \
+    WindowWidget.cpp \
     List.cpp \
-    Display.cpp
+    Display.cpp \
+    ListItem.cpp
 
-HEADERS  += WindowWidget.h \
+HEADERS += \
+    WindowWidget.h \
     List.h \
-    Display.h
+    Display.h \
+    ListItem.h
 
-FORMS    += WindowWidget.ui \
+FORMS += \
+    WindowWidget.ui \
     Display.ui
 
 include(../../src/QWidgetsListWidget.pri)
