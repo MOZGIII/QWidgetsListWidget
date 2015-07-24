@@ -15,7 +15,7 @@ signals:
 public slots:
 
 protected slots:
-    virtual QWidgetsListWidgetDisplay *createDisplay(const QModelIndex &index) const;
+    virtual QWidgetsListWidgetDisplay *createDisplay(const QModelIndex &index, QListWidgetItem *listItem) const override;
 };
 
 #endif // LIST_H

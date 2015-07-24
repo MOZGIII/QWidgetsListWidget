@@ -12,11 +12,11 @@ class Display : public QWidgetsListWidgetDisplay
     Q_OBJECT
 
 public:
-    explicit Display(const QModelIndex &index);
+    explicit Display(const QModelIndex &index, QListWidgetItem *listItem);
     ~Display();
 
 public slots:
-    virtual void dataChanged();
+    virtual void dataChanged() override;
 
 private:
     Ui::Display *ui;

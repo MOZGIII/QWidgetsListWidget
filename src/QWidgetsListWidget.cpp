@@ -28,14 +28,14 @@ QWidgetsListWidget::QWidgetsListWidget(QWidget *parent) :
 void QWidgetsListWidget::rowsInserted(const QModelIndex &parent, int start, int end)
 {
     for (int row = start; row <= end; ++row) {
-        auto listIndex = index(row);
-        Q_ASSERT(listIndex.isValid());
+        auto listItem = item(row);
+        Q_ASSERT(listItem != nullptr);
 
-        if(indexWidget(listIndex) == nullptr) {
+        if(itemWidget(listItem) == nullptr) {
             // setItemWidget passes ownership to List's viewport
-            auto widget = createDisplay(listIndex);
-            setIndexWidget(listIndex, widget);
-            item(row)->setSizeHint(widget->sizeHint());
+            auto widget = createDisplay(indexFromItem(listItem), listItem);
+            setItemWidget(listItem, widget);
+            listItem->setSizeHint(widget->sizeHint());
         }
     }
     QListWidget::rowsInserted(parent, start, end);
@@ -70,9 +70,9 @@ void QWidgetsListWidget::dataChanged(const QModelIndex &topLeft, const QModelInd
     QListWidget::dataChanged(topLeft, bottomRight, roles);
 }
 
-QWidgetsListWidgetDisplay *QWidgetsListWidget::createDisplay(const QModelIndex &index) const
+QWidgetsListWidgetDisplay *QWidgetsListWidget::createDisplay(const QModelIndex &index, QListWidgetItem *listItem) const
 {
-    return new QWidgetsListWidgetDisplay(index);
+    return new QWidgetsListWidgetDisplay(index, listItem);
 }
 
 QModelIndex QWidgetsListWidget::index(int row, int column, const QModelIndex &parent) const
