@@ -12,14 +12,12 @@ SOURCES += \
     main.cpp \
     WindowWidget.cpp \
     List.cpp \
-    Display.cpp \
-    ListItem.cpp
+    Display.cpp
 
 HEADERS += \
     WindowWidget.h \
     List.h \
-    Display.h \
-    ListItem.h
+    Display.h
 
 FORMS += \
     WindowWidget.ui \
