@@ -6,7 +6,7 @@ List::List(QWidget *parent) : QWidgetsListWidget(parent)
 {
 }
 
-QWidgetsListWidgetDisplay *List::createDisplay(const QModelIndex &index, QListWidgetItem *listItem) const
+QWidgetsListWidgetDisplay *List::createDisplay(QListWidgetItem *listItem) const
 {
-    return new Display(index, listItem);
+    return new Display(listItem);
 }

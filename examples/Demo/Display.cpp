@@ -1,8 +1,8 @@
 #include "Display.h"
 #include "ui_Display.h"
 
-Display::Display(const QModelIndex &index, QListWidgetItem *listItem) :
-    QWidgetsListWidgetDisplay(index, listItem),
+Display::Display(QListWidgetItem *listItem) :
+    QWidgetsListWidgetDisplay(listItem),
     ui(new Ui::Display)
 {
     ui->setupUi(this);

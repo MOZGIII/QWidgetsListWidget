@@ -12,7 +12,7 @@ class Display : public QWidgetsListWidgetDisplay
     Q_OBJECT
 
 public:
-    explicit Display(const QModelIndex &index, QListWidgetItem *listItem);
+    explicit Display(QListWidgetItem *listItem);
     ~Display();
 
 public slots:
