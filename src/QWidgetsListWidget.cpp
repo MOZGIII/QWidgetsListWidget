@@ -33,7 +33,7 @@ void QWidgetsListWidget::rowsInserted(const QModelIndex &parent, int start, int 
 
         if(itemWidget(listItem) == nullptr) {
             // setItemWidget passes ownership to List's viewport
-            auto widget = createDisplay(indexFromItem(listItem), listItem);
+            auto widget = createDisplay(listItem);
             setItemWidget(listItem, widget);
             listItem->setSizeHint(widget->sizeHint());
         }
@@ -48,7 +48,8 @@ void QWidgetsListWidget::rowsAboutToBeRemoved(const QModelIndex &parent, int sta
         Q_ASSERT(listIndex.isValid());
 
         auto widget = indexWidget(listIndex);
-        if(widget != nullptr) {
+        if(widget != nullptr) 
+		{
             setIndexWidget(listIndex, nullptr);
             widget->deleteLater();
         }
@@ -70,9 +71,9 @@ void QWidgetsListWidget::dataChanged(const QModelIndex &topLeft, const QModelInd
     QListWidget::dataChanged(topLeft, bottomRight, roles);
 }
 
-QWidgetsListWidgetDisplay *QWidgetsListWidget::createDisplay(const QModelIndex &index, QListWidgetItem *listItem) const
+QWidgetsListWidgetDisplay *QWidgetsListWidget::createDisplay(QListWidgetItem *listItem) const
 {
-    return new QWidgetsListWidgetDisplay(index, listItem);
+    return new QWidgetsListWidgetDisplay(listItem);
 }
 
 QModelIndex QWidgetsListWidget::index(int row, int column, const QModelIndex &parent) const

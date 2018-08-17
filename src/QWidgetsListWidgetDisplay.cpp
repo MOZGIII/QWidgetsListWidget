@@ -1,8 +1,8 @@
 #include "QWidgetsListWidgetDisplay.h"
+#include "QWidgetsListWidget.h"
 
-QWidgetsListWidgetDisplay::QWidgetsListWidgetDisplay(const QModelIndex &index, QListWidgetItem *listItem) :
+QWidgetsListWidgetDisplay::QWidgetsListWidgetDisplay(QListWidgetItem *listItem) :
     QWidget(0), // parent is always messed around with later anyway
-    m_index(index),
     m_listItem(listItem)
 {
 }
@@ -11,10 +11,12 @@ void QWidgetsListWidgetDisplay::dataChanged()
 {
 }
 
-const QModelIndex &QWidgetsListWidgetDisplay::index() const
+QModelIndex QWidgetsListWidgetDisplay::index() const
 {
-    return m_index;
+	QWidgetsListWidget* pListWidget = static_cast<QWidgetsListWidget*>(listItem()->listWidget());
+	return pListWidget->index(pListWidget->row(listItem()));
 }
+
 QListWidgetItem *QWidgetsListWidgetDisplay::listItem() const
 {
     return m_listItem;

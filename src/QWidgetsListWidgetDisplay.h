@@ -9,17 +9,16 @@ class QWidgetsListWidgetDisplay : public QWidget
 {
     Q_OBJECT
 public:
-    explicit QWidgetsListWidgetDisplay(const QModelIndex &index, QListWidgetItem *listItem);
+    explicit QWidgetsListWidgetDisplay(QListWidgetItem *listItem);
 
 public slots:
     virtual void dataChanged();
 
 protected:
-    const QModelIndex &index() const;
+    QModelIndex index() const;
     QListWidgetItem *listItem() const;
 
 private:
-    QModelIndex m_index;
     QListWidgetItem *m_listItem;
 };
 

@@ -15,9 +15,9 @@ protected slots:
     virtual void rowsInserted(const QModelIndex &parent, int start, int end) override;
     virtual void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end);
     virtual void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles) override;
-    virtual QWidgetsListWidgetDisplay *createDisplay(const QModelIndex &index, QListWidgetItem *listItem) const;
+    virtual QWidgetsListWidgetDisplay *createDisplay(QListWidgetItem *listItem) const;
 
-protected:
+public :
     QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const;
 };
 
